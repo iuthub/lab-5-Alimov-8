@@ -31,5 +31,27 @@ Your information has been recorded.
         (<?=$_REQUEST["card_type"]?>)
     </dd>
 </dl>
+<p>Here are all the suckers who have submitted here:</p>
+
+<?php
+$file = 'suckers.txt';
+// Open the file to get existing content
+$current = file_get_contents($file);
+// Append a new person to the file
+$current .=  $_REQUEST["name"].";". $_REQUEST["section"].";".$_REQUEST["card"].";".$_REQUEST["card_type"].";"."\n";
+// Write the contents back to the file
+file_put_contents($file, $current);
+?>
+<pre>
+    <?php
+    if ($file = fopen("suckers.txt", "r")) {
+    while(!feof($file)) {
+        $line = fgets($file);
+        print $line;
+    }
+    fclose($file);
+}
+    ?>
+</pre>
 </body>
 </html>
