@@ -15,7 +15,7 @@
 <hr />
 
 <h2>Give Us Your Money</h2>
-<form action="http://httpbin.org/get" method="GET">
+<form action="data.php" method="POST">
     <dl>
         <dt>Name</dt>
         <dd>
